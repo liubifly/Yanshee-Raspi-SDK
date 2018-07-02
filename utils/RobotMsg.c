@@ -2149,7 +2149,7 @@ UBTEDU_RC_T ubtRobot_Msg_Decode_VisionDetect(char *pcRecvBuf, char *pcValue)
     char acCmd[MSG_CMD_STR_MAX_LEN];
     char type[32];
 
-    UBTEDU_RC_T ret = UBTEDU_RC_FAILED;r
+    UBTEDU_RC_T ret = UBTEDU_RC_FAILED;
 
     /* Check parameters */
     if (NULL == pcRecvBuf)
