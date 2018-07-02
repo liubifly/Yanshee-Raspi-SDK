@@ -29,7 +29,7 @@ ret = RobotApi.ubtGetRobotServo(servoinfo)
 data = {}
 i = 0
 while(i < 1000):
-	angle = [servoinfo.SERVO1, servoinfo.SERVO2, servoinfo.SERVO3, servoinfo.SERVO4, servoinfo.SERVO5, servoinfo.SERVO6, servoinfo.SERVO7, servoinfo.SERVO8, servoinfo.SERVO9, servoinfo.SERVO10, servoinfo.SERVO11, servoinfo.SERVO12, servoinfo.SERVO13, servoinfo.SERVO14, servoinfo.SERVO15, servoinfo.SERVO16, servoinfo.SERVO17]
+	angle = [servoinfo.SERVO1_ANGLE, servoinfo.SERVO2_ANGLE, servoinfo.SERVO3_ANGLE, servoinfo.SERVO4_ANGLE, servoinfo.SERVO5_ANGLE, servoinfo.SERVO6_ANGLE, servoinfo.SERVO7_ANGLE, servoinfo.SERVO8_ANGLE, servoinfo.SERVO9_ANGLE, servoinfo.SERVO10_ANGLE, servoinfo.SERVO11_ANGLE, servoinfo.SERVO12_ANGLE, servoinfo.SERVO13_ANGLE, servoinfo.SERVO14_ANGLE, servoinfo.SERVO15_ANGLE, servoinfo.SERVO16_ANGLE, servoinfo.SERVO17_ANGLE]
 	data[i] = angle
 	i += 1
 
