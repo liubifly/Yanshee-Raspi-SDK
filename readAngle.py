@@ -24,14 +24,39 @@ if (0 != ret):
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
-ret = RobotApi.ubtGetRobotServo(servoinfo)
+with open('angle_test.txt', 'r') as infile:
+    data = json.load(infile)
+    ii = 0
+    while True:
+        try:
+            angle = data[str(ii)]
+            print(angle[7])
+            servoinfo.SERVO1_ANGLE = angle[0]
+            servoinfo.SERVO2_ANGLE = angle[1]
+            servoinfo.SERVO3_ANGLE = angle[2]
+            servoinfo.SERVO4_ANGLE = angle[3]
+            servoinfo.SERVO5_ANGLE = angle[4]
+            servoinfo.SERVO6_ANGLE = angle[5]
+            servoinfo.SERVO7_ANGLE = angle[6]
+            servoinfo.SERVO8_ANGLE = angle[7]
+            servoinfo.SERVO9_ANGLE = angle[8]
+            servoinfo.SERVO10_ANGLE = angle[9]
+            servoinfo.SERVO11_ANGLE = angle[10]
+            servoinfo.SERVO12_ANGLE = angle[11]
+            servoinfo.SERVO13_ANGLE = angle[12]
+            servoinfo.SERVO14_ANGLE = angle[13]
+            servoinfo.SERVO15_ANGLE = angle[14]
+            servoinfo.SERVO16_ANGLE = angle[15]
+            servoinfo.SERVO17_ANGLE = angle[16]
+            ret = RobotApi.ubtSetRobotServo(servoinfo, 30)
+            ii += 1
+            if(ii > 10):
+               break 
+            time.sleep(1)
+        except KeyError:
+            print("key error")
+            break
 
-data = {}
-i = 0
-while(i < 1000):
-	angle = [servoinfo.SERVO1_ANGLE, servoinfo.SERVO2_ANGLE, servoinfo.SERVO3_ANGLE, servoinfo.SERVO4_ANGLE, servoinfo.SERVO5_ANGLE, servoinfo.SERVO6_ANGLE, servoinfo.SERVO7_ANGLE, servoinfo.SERVO8_ANGLE, servoinfo.SERVO9_ANGLE, servoinfo.SERVO10_ANGLE, servoinfo.SERVO11_ANGLE, servoinfo.SERVO12_ANGLE, servoinfo.SERVO13_ANGLE, servoinfo.SERVO14_ANGLE, servoinfo.SERVO15_ANGLE, servoinfo.SERVO16_ANGLE, servoinfo.SERVO17_ANGLE]
-	data[i] = angle
-	i += 1
+RobotApi.ubtRobotDisconnect("SDK" ,"1", gIPAddr)
+RobotApi.ubtRobotDeinitialize()
 
-with open('angle_test.txt', 'w') as outfile:
-	json.dump(data, outfile)

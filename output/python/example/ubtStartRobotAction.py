@@ -11,7 +11,7 @@ gIPAddr = ""
 
 robotinfo = RobotApi.UBTEDU_ROBOTINFO_T()
 #The robot name you want to connect
-robotinfo.acName="Yanshee_8F83"
+robotinfo.acName="Yanshee_4495"
 ret = RobotApi.ubtRobotDiscovery("SDK", 15, robotinfo)
 if (0 != ret):
 	print ("Return value: %d" % ret)
@@ -27,7 +27,7 @@ if (0 != ret):
 #pcName = ['Forward','Hit left','Hit right','Left slide tackle','reset','Right']
 iRepeat = 1
 #for name in pcName:
-pcName = "Hit left"
+pcName = "Forward"
 ret = RobotApi.ubtStartRobotAction(pcName,iRepeat)
 if ret != 0:
     print("Can not start robot action! Error Code: %d" % ret)
@@ -35,7 +35,9 @@ if ret != 0:
     #print("Current action: %s" % name)
     #time.sleep(2)
 
-
+servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
+ret = RobotApi.ubtGetRobotServo(servoinfo)
+print("8: %d" % servoinfo.SERVO8_ANGLE)
 #---------------------------Disconnect--------------------------------------
 RobotApi.ubtRobotDisconnect("SDK","1",gIPAddr)
 RobotApi.ubtRobotDeinitialize()
