@@ -27,7 +27,7 @@ if (0 != ret):
 #pcName = ['Forward','Hit left','Hit right','Left slide tackle','reset','Right']
 iRepeat = 1
 #for name in pcName:
-pcName = "reset"
+pcName = "Hit left"
 ret = RobotApi.ubtStartRobotAction(pcName,iRepeat)
 if ret != 0:
     print("Can not start robot action! Error Code: %d" % ret)
@@ -35,8 +35,8 @@ if ret != 0:
     #print("Current action: %s" % name)
     #time.sleep(2)
 
-
+servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
+ret = RobotApi.ubtGetRobotServo(servoinfo)
 #---------------------------Disconnect--------------------------------------
 RobotApi.ubtRobotDisconnect("SDK","1",gIPAddr)
 RobotApi.ubtRobotDeinitialize()
-

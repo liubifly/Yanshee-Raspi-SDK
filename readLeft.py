@@ -24,7 +24,7 @@ if (0 != ret):
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
-with open('angle_test.txt', 'r') as infile:
+with open('hit_left.txt', 'r') as infile:
     data = json.load(infile)
     ii = input("Please input the number you want to replay: ")
     try:
