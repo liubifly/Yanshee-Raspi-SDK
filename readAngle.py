@@ -13,18 +13,18 @@ robotinfo = RobotApi.UBTEDU_ROBOTINFO_T()
 robotinfo.acName = "Yanshee_4495"
 ret = RobotApi.ubtRobotDiscovery("SDK", 15, robotinfo)
 if (0 != ret):
-	print("Return value :%d" % ret)
-	exit(1)
+        print("Return value :%d" % ret)
+        exit(1)
 
 gIPAddr = robotinfo.acIPAddr
 ret = RobotApi.ubtRobotConnect("SDK", "1", gIPAddr)
 if (0 != ret):
-	print("Cannot connect to robot %s" % robotinfo.acName)
-	exit(1)
+        print("Cannot connect to robot %s" % robotinfo.acName)
+        exit(1)
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
-with open('angle_test.txt', 'r') as infile:
+with open(filename, 'r') as infile:
     data = json.load(infile)
     ii = 0
     while True:
