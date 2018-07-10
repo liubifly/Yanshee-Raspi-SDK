@@ -44,9 +44,9 @@ while True:
 	    angle = [float(i)/PI*180.0 for i in joint_angles]
        
             servoinfo.SERVO17_ANGLE = int(-angle[0]+90.0)
-            #servoinfo.SERVO4_ANGLE = angle[1]
-            #servoinfo.SERVO5_ANGLE = angle[2]
-            #servoinfo.SERVO6_ANGLE = angle[3]
+            servoinfo.SERVO4_ANGLE = int(angle[1]+90.0)
+            servoinfo.SERVO5_ANGLE = int(angle[2]+2)
+            servoinfo.SERVO6_ANGLE = int(angle[3]+90.0)
             servoinfo.SERVO12_ANGLE = int(angle[4]+90.0)
             servoinfo.SERVO13_ANGLE = int(angle[5]+65.0)
             servoinfo.SERVO14_ANGLE = int(-angle[6]+25.0)
@@ -60,7 +60,7 @@ while True:
             servoinfo.SERVO9_ANGLE = int(angle[14]+150.0)
             servoinfo.SERVO10_ANGLE = int(angle[15]+90.0)
             servoinfo.SERVO11_ANGLE = int(angle[16]+90.0)
-            ret = RobotApi.ubtSetRobotServo(servoinfo, 40)
+            ret = RobotApi.ubtSetRobotServo(servoinfo, 20)
         except:
             print 'json error'
 	

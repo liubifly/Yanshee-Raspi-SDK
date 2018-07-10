@@ -30,7 +30,7 @@ if (0 != ret):
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
 ret = RobotApi.ubtGetRobotServo(servoinfo)
-print "servoinfo.SERVO1_ANGLE = %d" %(servoinfo.SERVO3_ANGLE)
+print "servoinfo.SERVO1_ANGLE = %d" %(servoinfo.SERVO6_ANGLE)
 
 #--------------------------DisConnect--------------------------------- 
 RobotApi.ubtRobotDisconnect("SDK","1",gIPAddr)
