@@ -26,7 +26,7 @@ if (0 != ret):
 #--------------------------Test servo 6------------------------------------
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
-servoinfo.SERVO12_ANGLE = 60
+servoinfo.SERVO3_ANGLE = 90
 ret = RobotApi.ubtSetRobotServo(servoinfo, 20)
 
 

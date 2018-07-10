@@ -1,11 +1,12 @@
 #!/usr/bin/python
 # _*_ coding: utf-8 -*-
 
-
 import time
 import RobotApi
 
+
 RobotApi.ubtRobotInitialize()
+
 #------------------------------Connect----------------------------------------
 gIPAddr = ""
 
@@ -23,14 +24,15 @@ if (0 != ret):
 	print ("Can not connect to robot %s" % robotinfo.acName)
 	exit(1)
 
-#--------------------------Test servo 6------------------------------------
+#-----------------------------Get all servos' angle------------------------------
+
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
-servoinfo.SERVO12_ANGLE = 60
-ret = RobotApi.ubtSetRobotServo(servoinfo, 20)
 
+ret = RobotApi.ubtGetRobotServo(servoinfo)
+print "servoinfo.SERVO1_ANGLE = %d" %(servoinfo.SERVO3_ANGLE)
 
-#--------------------------DisConnection--------------------------------- 
+#--------------------------DisConnect--------------------------------- 
 RobotApi.ubtRobotDisconnect("SDK","1",gIPAddr)
 RobotApi.ubtRobotDeinitialize()
 
