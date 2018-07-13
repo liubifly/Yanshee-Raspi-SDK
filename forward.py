@@ -6,7 +6,6 @@ import RobotApi
 
 
 RobotApi.ubtRobotInitialize()
-
 #------------------------------Connect----------------------------------------
 gIPAddr = ""
 
@@ -24,15 +23,20 @@ if (0 != ret):
 	print ("Can not connect to robot %s" % robotinfo.acName)
 	exit(1)
 
-#-----------------------------Get all servos' angle------------------------------
-
+#---------------------------Dooneoftheaction-----------------------------------
+#pcName = ['Forward','Hit left','Hit right','Left slide tackle','reset','Right']
+iRepeat = 1
+#for name in pcName:
+pcName = "Forward"
+ret = RobotApi.ubtStartRobotAction(pcName,iRepeat)
+if ret != 0:
+    print("Can not start robot action! Error Code: %d" % ret)
+    exit(3)
+    #print("Current action: %s" % name)
+    #time.sleep(2)
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
-
 ret = RobotApi.ubtGetRobotServo(servoinfo)
-print "servoinfo.SERVO1_ANGLE = %d" %(servoinfo.SERVO12_ANGLE)
-
-#--------------------------DisConnect--------------------------------- 
+#---------------------------Disconnect--------------------------------------
 RobotApi.ubtRobotDisconnect("SDK","1",gIPAddr)
 RobotApi.ubtRobotDeinitialize()
-

@@ -5,8 +5,7 @@ import time
 import RobotApi
 import json
 import socket
-
-PI = 3.1415926
+import servo_conversions as sc
 
 RobotApi.ubtRobotInitialize()
 
@@ -39,27 +38,27 @@ while True:
         if not data: break
         try:
             angle = json.loads(data)
+            # angle = {'position': [0]*17}
             joint_angles = angle['position']
-            print joint_angles
-	    angle = [float(i)/PI*180.0 for i in joint_angles]
-       
-            servoinfo.SERVO17_ANGLE = int(-angle[0]+90.0)
-            servoinfo.SERVO4_ANGLE = int(angle[1]+90.0)
-            servoinfo.SERVO5_ANGLE = int(angle[2]+2)
-            servoinfo.SERVO6_ANGLE = int(angle[3]+90.0)
-            servoinfo.SERVO12_ANGLE = int(angle[4]+90.0)
-            servoinfo.SERVO13_ANGLE = int(angle[5]+65.0)
-            servoinfo.SERVO14_ANGLE = int(-angle[6]+25.0)
-            servoinfo.SERVO15_ANGLE = int(-angle[7]+90.0)
-            servoinfo.SERVO16_ANGLE = int(angle[8]+90.0)
-            servoinfo.SERVO1_ANGLE = int(-angle[9]+90.0)
-            servoinfo.SERVO2_ANGLE = int(angle[10]+180.0)
-            servoinfo.SERVO3_ANGLE = int(angle[11]+90.0)
-            servoinfo.SERVO7_ANGLE = int(angle[12]+90.0)
-            servoinfo.SERVO8_ANGLE = int(-angle[13]+90.0)
-            servoinfo.SERVO9_ANGLE = int(angle[14]+150.0)
-            servoinfo.SERVO10_ANGLE = int(angle[15]+90.0)
-            servoinfo.SERVO11_ANGLE = int(angle[16]+90.0)
+            # print joint_angles
+            angle = sc.rviz_to_yanshee(joint_angles)
+            servoinfo.SERVO1_ANGLE = angle[0]
+            servoinfo.SERVO2_ANGLE = angle[1]
+            servoinfo.SERVO3_ANGLE = angle[2]
+            servoinfo.SERVO4_ANGLE = angle[3]
+            servoinfo.SERVO5_ANGLE = angle[4]
+            servoinfo.SERVO6_ANGLE = angle[5]
+            servoinfo.SERVO7_ANGLE = angle[6]
+            servoinfo.SERVO8_ANGLE = angle[7]
+            servoinfo.SERVO9_ANGLE = angle[8]
+            servoinfo.SERVO10_ANGLE = angle[9]
+            servoinfo.SERVO11_ANGLE = angle[10]
+            servoinfo.SERVO12_ANGLE = angle[11]
+            servoinfo.SERVO13_ANGLE = angle[12]
+            servoinfo.SERVO14_ANGLE = angle[13]
+            servoinfo.SERVO15_ANGLE = angle[14]
+            servoinfo.SERVO16_ANGLE = angle[15]
+            servoinfo.SERVO17_ANGLE = angle[16]
             ret = RobotApi.ubtSetRobotServo(servoinfo, 20)
         except:
             print 'json error'

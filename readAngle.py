@@ -24,7 +24,7 @@ if (0 != ret):
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
-with open(filename, 'r') as infile:
+with open('angle_forward.txt', 'r') as infile:
     data = json.load(infile)
     ii = 0
     while True:
@@ -50,7 +50,7 @@ with open(filename, 'r') as infile:
             servoinfo.SERVO17_ANGLE = angle[16]
             ret = RobotApi.ubtSetRobotServo(servoinfo, 30)
             ii += 1
-            if(ii > 10):
+            if(ii > 5):
                break 
             time.sleep(1)
         except KeyError:

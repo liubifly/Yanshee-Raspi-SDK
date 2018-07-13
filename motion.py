@@ -31,7 +31,6 @@ def move(movement):
             exit(1)
 
     servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
-    
     if (movement == "fl"):
         filename = "angle_forward.txt"
         start_number = 6
@@ -41,15 +40,27 @@ def move(movement):
         start_number = 0
         end_number = 5
     elif (movement == "sl"):
+        print("left")
         filename = "angle_lside.txt"
         start_number = 0
         end_number = 2
     elif (movement == "sr"):
+        print("right")
         filename = "angle_rside.txt"
         start_number = 0
         end_number = 2
+    elif (movement == "r"):
+        print("reset")
+        filename = "angle_reset.txt"
+        start_number = 0
+        end_number = 2
+    elif (movement == "f"):
+        print("forward")
+        move("fr")
+        move("fl")
+        return
     else:
-        print("Please use the correct primitive movement name!")
+        print("Please use the correct primitive movement name! " + movement + " is invalid")
         RobotApi.ubtRobotDisconnect("SDK" ,"1", gIPAddr)
         RobotApi.ubtRobotDeinitialize()
         exit(1)
@@ -79,6 +90,7 @@ def move(movement):
                 servoinfo.SERVO17_ANGLE = angle[16]
                 ret = RobotApi.ubtSetRobotServo(servoinfo, 30)
                 ii += 1
+                print(angle[6])
                 if(ii > end_number):
                    break 
                 time.sleep(1)
@@ -87,5 +99,4 @@ def move(movement):
                 break
 
     RobotApi.ubtRobotDisconnect("SDK" ,"1", gIPAddr)
-    RobotApi.ubtRobotDeinitialize()
-
+    #RobotApi.ubtRobotDeinitialize()

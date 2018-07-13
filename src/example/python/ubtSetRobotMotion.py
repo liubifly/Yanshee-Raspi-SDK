@@ -11,7 +11,7 @@ gIPAddr = ""
 
 robotinfo = RobotApi.UBTEDU_ROBOTINFO_T()
 #The robot name you want to connect
-robotinfo.acName="Yanshee_8F83"
+robotinfo.acName="Yanshee_4495"
 ret = RobotApi.ubtRobotDiscovery("SDK", 15, robotinfo)
 if (0 != ret):
 	print ("Return value: %d" % ret)
@@ -25,8 +25,8 @@ if (0 != ret):
 
 #---------------------------Set Robot Motion-------------------------------
 # Test bow , direction front, speed 3, repeat once
-pcType = "bow"
-pcDirect = "front"
+pcType = "walk"
+pcDirect = "left"
 iSpeed = 3
 iRepeat = 1
 ret = RobotApi.ubtSetRobotMotion(pcType,pcDirect,iSpeed,iRepeat)
