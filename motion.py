@@ -33,13 +33,13 @@ def move(movement):
 
     servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
     if (movement == "fl"):
-        filename = "angle_forward.txt"
-        start_number = 6
-        end_number = 10
-    elif (movement == "fr"):
-        filename = "angle_forward.txt"
+        filename = "angle_f.txt"
         start_number = 0
         end_number = 5
+    elif (movement == "fr"):
+        filename = "angle_f.txt"
+        start_number = 6
+        end_number = 10
     elif (movement == "sl"):
         print("left")
         filename = "angle_lside.txt"

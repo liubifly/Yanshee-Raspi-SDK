@@ -25,13 +25,12 @@ if (0 != ret):
 
 servoinfo = RobotApi.UBTEDU_ROBOTSERVO_T()
 
-with open('angle_forward.txt', 'r') as infile:
+with open('angle_f.txt', 'r') as infile:
     data = json.load(infile)
     ii = 0
     while True:
         try:
             angle = data[str(ii)]
-            print(angle[7])
             servoinfo.SERVO1_ANGLE = angle[0]
             servoinfo.SERVO2_ANGLE = angle[1]
             servoinfo.SERVO3_ANGLE = angle[2]

@@ -35,5 +35,5 @@ while(ii < 10):
 	ii += 1
         time.sleep(0.1)
 
-with open('angle_reset.txt', 'w') as outfile:
+with open('angle_f.txt', 'w') as outfile:
 	json.dump(data, outfile)
