@@ -2,3 +2,5 @@
 *.so
 .idea
 *.pyc
+output/
+src/YANSHEE_USER_MANUAL
