@@ -4,13 +4,14 @@
 import time
 import RobotApi
 import json
+import robotname as rn
 
 RobotApi.ubtRobotInitialize()
 
 gIPAddr = ""
 
 robotinfo = RobotApi.UBTEDU_ROBOTINFO_T()
-robotinfo.acName = "Yanshee_4495"
+robotinfo.acName = rn.getname() 
 ret = RobotApi.ubtRobotDiscovery("SDK", 15, robotinfo)
 if (0 != ret):
 	print("Return value :%d" % ret)
