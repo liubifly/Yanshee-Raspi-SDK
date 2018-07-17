@@ -49,8 +49,9 @@ with open('angle_f.txt', 'r') as infile:
             servoinfo.SERVO16_ANGLE = angle[15]
             servoinfo.SERVO17_ANGLE = angle[16]
             ret = RobotApi.ubtSetRobotServo(servoinfo, 30)
+            print ii
             ii += 1
-            if(ii > 5):
+            if(ii > 17):
                break 
             time.sleep(1)
         except KeyError:

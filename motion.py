@@ -35,11 +35,11 @@ def move(movement):
     if (movement == "fl"):
         filename = "angle_f.txt"
         start_number = 0
-        end_number = 5
+        end_number = 10
     elif (movement == "fr"):
         filename = "angle_f.txt"
-        start_number = 6
-        end_number = 10
+        start_number = 11
+        end_number = 17
     elif (movement == "sl"):
         print("left")
         filename = "angle_lside.txt"
@@ -89,12 +89,12 @@ def move(movement):
                 servoinfo.SERVO15_ANGLE = angle[14]
                 servoinfo.SERVO16_ANGLE = angle[15]
                 servoinfo.SERVO17_ANGLE = angle[16]
-                ret = RobotApi.ubtSetRobotServo(servoinfo, 30)
+                ret = RobotApi.ubtSetRobotServo(servoinfo, 20)
                 ii += 1
-                print(angle[6])
+                print(ii)
+                time.sleep(1)
                 if(ii > end_number):
                    break 
-                time.sleep(1)
             except KeyError:
                 print("key error")
                 break
